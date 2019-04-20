@@ -2,6 +2,7 @@
 
 #include <string>
 
+// an Item a player can use for something
 class Item
 {
 public:

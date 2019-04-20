@@ -4,6 +4,7 @@
 #include <vector>
 #include "Console.h"
 #include "Parser.h"
+#include "Room.h"
 
 class Game {
 
@@ -22,16 +23,17 @@ public:
 
     static std::vector<std::string> getCommands()
     {
-        return *pM_commands;
+        return *m_pCommands;
     }
 
     static void setCommands(std::vector<std::string> commands)
     {
-        *pM_commands = commands;
+        *m_pCommands = commands;
     }
 
 private:
     static bool m_isPlaying;
-    static std::vector<std::string>* pM_commands;
+    static std::vector<std::string>* m_pCommands;
+    static Room* m_pCurrentRoom;
 
 };

@@ -1,14 +1,11 @@
 #pragma once
 #include <string>
 
+// an enemy a player can fight. Are inside a room.
 class Enemy
 {
 public:
-    Enemy(std::string name, int health)
-    {
-        m_name = name;
-        m_health = health;
-    }
+    Enemy(std::string name, int health);
 
     std::string getName()
     {

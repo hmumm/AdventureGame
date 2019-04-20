@@ -1,6 +1,7 @@
 #pragma once
 #include "Item.h"
 
+// A weapon is a type of item, used for attacking
 class Weapon : public Item
 {
 public:

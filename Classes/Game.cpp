@@ -2,18 +2,24 @@
 #include "Parser.h"
 #include "Console.h"
 #include <vector>
+#include "Room.h"
 
+// Main game loop
 void Game::Play()
 {
     do
     {
+        Console::PrintLn(m_pCurrentRoom->getDescription());
         std::string input;
         input = Console::Read();
-        *pM_commands = Parser::Parse(input);
+        *m_pCommands = Parser::Parse(input);
     
     } while(m_isPlaying);
-    delete pM_commands;
+    delete m_pCommands;
+    delete m_pCurrentRoom;
+    Console::PrintLn("Goodbye");
 }
 
 bool Game::m_isPlaying = true;
-std::vector<std::string>* Game::pM_commands = new std::vector<std::string>();
+std::vector<std::string>* Game::m_pCommands = new std::vector<std::string>();
+Room* Game::m_pCurrentRoom = new Room("Test room");
