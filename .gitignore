@@ -1,2 +1,4 @@
-AdventureGame.exe
-.vscode
+#bin folder
+/bin/*
+#.vscode folder
+/.vscode/*

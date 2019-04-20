@@ -11,6 +11,8 @@ class Game {
 public:
 
     static void Play();
+
+    static void ExecuteCommands();
     
     static void setIsPlaying(bool playing)
     {

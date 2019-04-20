@@ -16,6 +16,14 @@ void Game::Play()
     Console::PrintLn("Goodbye");
 }
 
+void Game::ExecuteCommands()
+{
+    for(int i = 0; i < m_pCommands->size(); i++)
+    {
+        
+    }
+}
+
 bool Game::m_isPlaying = true;
 std::vector<std::string>* Game::m_pCommands = new std::vector<std::string>();
 Room* Game::m_pCurrentRoom = new Room("Test room");
