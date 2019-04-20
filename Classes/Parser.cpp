@@ -1,6 +1,4 @@
 #include "Parser.h"
-#include <vector>
-#include <string>
 
 std::vector<std::string> Parser::Parse(std::string str)
 {

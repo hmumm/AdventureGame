@@ -11,9 +11,9 @@
         "AdventureGame",
         "-I",
         ".",
+        "*.cpp",
         "-I",
         "./Classes",
-        "*.cpp",
         "./Classes/*.cpp"
       ],
       "group": {
