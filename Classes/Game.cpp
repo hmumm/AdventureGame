@@ -18,9 +18,30 @@ void Game::Play()
 
 void Game::ExecuteCommands()
 {
-    for(int i = 0; i < m_pCommands->size(); i++)
+    if(m_pCommands == nullptr)
     {
-        
+        return;
+    }
+
+    std::string firstCommand = m_pCommands->at(0);
+    if(firstCommand == "quit")
+    {
+        m_isPlaying == false;
+        return;
+    } else if(firstCommand == "go")
+    {
+
+    } else if(firstCommand == "take")
+    {
+        for(int i = 0; i < m_pCurrentRoom->getItems().size(); i++)
+        {
+            
+        }
+    } else if(firstCommand == "attack")
+    {
+
+    } else {
+        return;
     }
 }
 
