@@ -3,16 +3,22 @@
 // Main game loop
 void Game::Play()
 {
+    Console::PrintLn("Enter your name");
+    std::string name = Console::Read();
+    m_pPlayer = new Player(name);
+
+    Console::PrintLn("Hello " + m_pPlayer->getName());
+    std::string input;
+    
     do
     {
-        Console::PrintLn(m_pCurrentRoom->getDescription());
-        std::string input;
-        input = Console::Read();
+        std::string input = Console::Read();
         *m_pCommands = Parser::Parse(input);
     
     } while(m_isPlaying);
     delete m_pCommands;
     delete m_pCurrentRoom;
+    delete m_pPlayer;
     Console::PrintLn("Goodbye");
 }
 
@@ -35,7 +41,7 @@ void Game::ExecuteCommands()
     {
         for(int i = 0; i < m_pCurrentRoom->getItems().size(); i++)
         {
-            
+
         }
     } else if(firstCommand == "attack")
     {
@@ -48,3 +54,4 @@ void Game::ExecuteCommands()
 bool Game::m_isPlaying = true;
 std::vector<std::string>* Game::m_pCommands = new std::vector<std::string>();
 Room* Game::m_pCurrentRoom = new Room("Test room");
+Player* Game::m_pPlayer = nullptr;

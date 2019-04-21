@@ -5,6 +5,7 @@
 #include "Console.h"
 #include "Parser.h"
 #include "Room.h"
+#include "Player.h"
 
 class Game {
 
@@ -37,5 +38,6 @@ private:
     static bool m_isPlaying;
     static std::vector<std::string>* m_pCommands;
     static Room* m_pCurrentRoom;
+    static Player* m_pPlayer;
 
 };
