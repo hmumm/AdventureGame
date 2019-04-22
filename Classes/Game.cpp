@@ -3,13 +3,16 @@
 // Main game loop
 void Game::Play()
 {
+    // Setup the player
     Console::PrintLn("Enter your name");
     std::string name = Console::Read();
     m_pPlayer = new Player(name);
 
+    // Say hello
     Console::PrintLn("Hello " + m_pPlayer->getName());
-    std::string input;
+
     
+
     do
     {
         std::string input = Console::Read();
