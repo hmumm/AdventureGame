@@ -14,6 +14,8 @@ public:
     static void Play();
 
     static void ExecuteCommands();
+
+    static void InitializeRooms();
     
     static void setIsPlaying(bool playing)
     {
