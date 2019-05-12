@@ -39,6 +39,7 @@ public:
 private:
     static bool m_isPlaying;
     static std::vector<std::string>* m_pCommands;
+    static std::vector<Room*> m_rooms;
     static Room* m_pCurrentRoom;
     static Player* m_pPlayer;
 

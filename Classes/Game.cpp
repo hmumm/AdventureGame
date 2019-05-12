@@ -40,7 +40,13 @@ void Game::ExecuteCommands()
         return;
     } else if(firstCommand == "go")
     {
+        if(m_pCommands->size() < 1)
+        {
+            Console::PrintLn("Go where?");
+            return;
+        }
         std::string secondCommand = m_pCommands->at(1);
+
         Room* nextRoom = m_pCurrentRoom->getExit(secondCommand);
         m_pCurrentRoom = nextRoom;
         Console::PrintLn(m_pCurrentRoom->getDescription());
@@ -80,6 +86,9 @@ void Game::InitializeRooms()
     pFoyerUpstairs->addExit("straight",pParlor);
 
     pParlor->addExit("back",pFoyerUpstairs);
+
+    // Add items to the rooms
+    pParlor->addWeapon(Weapon("Polturgust 2000",10));
 
     // Starting room
     m_pCurrentRoom = pFoyer;
