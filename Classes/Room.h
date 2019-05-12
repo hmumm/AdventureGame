@@ -3,6 +3,7 @@
 #include <vector>
 #include "Item.h"
 #include <map>
+#include "Weapon.h"
 
 // Contains information about a room a player could be
 class Room

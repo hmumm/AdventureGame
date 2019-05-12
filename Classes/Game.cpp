@@ -40,7 +40,7 @@ void Game::ExecuteCommands()
         return;
     } else if(firstCommand == "go")
     {
-        if(m_pCommands->size() < 1)
+        if(m_pCommands->size() < 2)
         {
             Console::PrintLn("Go where?");
             return;
@@ -94,10 +94,10 @@ void Game::InitializeRooms()
     m_pCurrentRoom = pFoyer;
 
     // Add all the rooms to m_rooms, so they can all be deleted when the game ends
-    m_rooms.push_back(pFoyer);
-    m_rooms.push_back(pHallway1);
-    m_rooms.push_back(pFoyerUpstairs);
-    m_rooms.push_back(pParlor);
+    m_rooms->push_back(pFoyer);
+    m_rooms->push_back(pHallway1);
+    m_rooms->push_back(pFoyerUpstairs);
+    m_rooms->push_back(pParlor);
 
 
 
@@ -107,3 +107,4 @@ bool Game::m_isPlaying = true;
 std::vector<std::string>* Game::m_pCommands = new std::vector<std::string>();
 Room* Game::m_pCurrentRoom = nullptr;
 Player* Game::m_pPlayer = nullptr;
+std::vector<Room*>* Game::m_rooms = new std::vector<Room*>();
