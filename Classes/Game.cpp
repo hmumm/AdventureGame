@@ -23,6 +23,7 @@ void Game::Play()
     delete m_pCurrentRoom;
     delete m_pPlayer;
     Console::PrintLn("Goodbye");
+    std::cin.get();
 }
 
 void Game::ExecuteCommands()
@@ -61,21 +62,35 @@ void Game::ExecuteCommands()
 
 void Game::InitializeRooms()
 {
-    Room* foyer = new Room("You're in a room inside a mansion. It looks vaguely familiar. There is a staircase on each side of the room. You could go up or straight");
+    Room* pFoyer = new Room("You're in a room inside a mansion. It looks vaguely familiar. There is a staircase on each side of the room. You could go up or straight");
 
-    Room* hallway1 = new Room("You're in a hallway. This is a dead end for now. You could go back.");
+    Room* pHallway1 = new Room("You're in a hallway. This is a dead end for now. You could go back.");
 
-    Room* foyerUpstairs = new Room("You are in the upstairs of the foyer. You could go straight, left, or down.");
+    Room* pFoyerUpstairs = new Room("You are in the upstairs of the foyer. You could go straight, left, or down.");
 
-    foyer->addExit("straight",hallway1);
-    foyer->addExit("up",foyerUpstairs);
+    Room* pParlor = new Room("You're in the Parlor. There is a table in the middle as well as some creepy paintings hanging on the each wall. They dont make any sound now but you vaguely rememeber them making noise before. There also seesm to be a vacuum on the table in the middle. Wonder what that is for? This is a dead end for now.");
 
-    hallway1->addExit("back",foyer);
+    // Add exits to all the rooms
+    pFoyer->addExit("straight",pHallway1);
+    pFoyer->addExit("up",pFoyerUpstairs);
+
+    pHallway1->addExit("back",pFoyer);
     
-    foyerUpstairs->addExit("down",foyer);
+    pFoyerUpstairs->addExit("down",pFoyer);
+    pFoyerUpstairs->addExit("straight",pParlor);
+
+    pParlor->addExit("back",pFoyerUpstairs);
 
     // Starting room
-    m_pCurrentRoom = foyer;
+    m_pCurrentRoom = pFoyer;
+
+    // Add all the rooms to m_rooms, so they can all be deleted when the game ends
+    m_rooms.push_back(pFoyer);
+    m_rooms.push_back(pHallway1);
+    m_rooms.push_back(pFoyerUpstairs);
+    m_rooms.push_back(pParlor);
+
+
 
 }
 

@@ -32,6 +32,11 @@ public:
 
     void removeItem(Item item);
 
+    void addWeapon(Weapon weapon)
+    {
+        m_weapons.push_back(weapon);
+    }
+
     void addExit(std::string name, Room* room)
     {
         m_exits.insert(std::pair<std::string,Room*>(name,room));
@@ -59,5 +64,7 @@ private:
     std::vector<Item> m_items;
     // All of the exits in the room
     std::map<std::string,Room*> m_exits;
+    // All of the weapons in the room
+    std::vector<Weapon> m_weapons;
 
 };
