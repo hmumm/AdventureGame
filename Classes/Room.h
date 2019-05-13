@@ -57,6 +57,8 @@ public:
     {
         return m_exits.at(name);
     }
+
+    bool hasExit(std::string name);
     
 private:
     // Description of the room, prints when the room is entered

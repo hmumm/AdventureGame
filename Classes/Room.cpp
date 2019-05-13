@@ -16,3 +16,11 @@ void Room::removeItem(Item item)
         }
     }
 }
+
+bool Room::hasExit(std::string name)
+{
+    if(m_exits.find(name) == m_exits.end()) {
+        return false;
+    }
+    return true;
+}

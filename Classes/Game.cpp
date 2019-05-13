@@ -47,7 +47,13 @@ void Game::ExecuteCommands()
         }
         std::string secondCommand = m_pCommands->at(1);
 
+        if(!m_pCurrentRoom->hasExit(secondCommand)) {
+            Console::PrintLn("There is no exit with that name.");
+            return;
+        } 
+        
         Room* nextRoom = m_pCurrentRoom->getExit(secondCommand);
+
         m_pCurrentRoom = nextRoom;
         Console::PrintLn(m_pCurrentRoom->getDescription());
         return;
@@ -61,7 +67,11 @@ void Game::ExecuteCommands()
     } else if(firstCommand == "attack")
     {
 
+    } else if(firstCommand == "exit" || firstCommand == "quit" || firstCommand == "leave") {
+        m_isPlaying = false;
+        return;
     } else {
+        Console::PrintLn("I don't know the command \"" + firstCommand + "\".");
         return;
     }
 }
